@@ -7,7 +7,7 @@ epicsEnvSet("IOCNAME", "hzb-v20-evr-02")
 
 
 
-epicsEnvSet("SYS", "ESSIP-DET:TS")
+epicsEnvSet("SYS", "V20-DET:TS")
 epicsEnvSet("PCI_SLOT", "1:0.0")
 epicsEnvSet("DEVICE", "EVR-01")
 epicsEnvSet("EVR", "$(DEVICE)")
@@ -15,19 +15,20 @@ epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-ess.db")
 epicsEnvSet("E3_MODULES", "/epics/iocs/e3")
 epicsEnvSet("EPICS_CMDS", "/epics/iocs/cmds")
 epicsEnvSet("TMP", "/tmp")
+epicsEnvSet("AS_TOP","/opt/nonvolatile/autosave")
+
 
 < "$(EPICS_CMDS)/mrfioc2-common-cmd/st.evr.cmd"
 
 
-iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
+iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(AS_TOP),IOCNAME=$(IOCNAME)")
 
 # Load EVR database
-dbLoadRecords("$(MRF_HW_DB)","EVR=$(EVR),SYS=$(SYS),D=$(DEVICE),FEVT=88.0525,PINITSEQ=0")
+dbLoadRecords("$(MRF_HW_DB)","EVR=$(EVR),SYS=$(SYS),D=$(DEVICE),FEVT=87.0525,PINITSEQ=0")
 
 
 ############# -------- Detector Readout Interface ----------------- ##################
-epicsEnvSet("DETINT_CMD_TOP","/epics/iocs/cmds/hzb-v20-evr-02") 
-#epicsEnvSet("DETINT_DB_TOP", "$(E3_MODULES)/e3-detectorinterface/m-epics-detectorinterface-dev/db")
+epicsEnvSet("DETINT_CMD_TOP","$(EPICS_CMDS)/hzb-v20-evr-02") 
 epicsEnvSet("STREAM_PROTOCOL_PATH","/epics/base-7.0.3/require/3.1.0/siteApps/dmsc_detector_interface/master/db")
 
 epicsEnvSet("DET_CLK_RST_EVT", "15")
