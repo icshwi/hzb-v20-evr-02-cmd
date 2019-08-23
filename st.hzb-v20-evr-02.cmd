@@ -7,7 +7,7 @@ epicsEnvSet("IOCNAME", "hzb-v20-evr-02")
 
 
 
-epicsEnvSet("SYS", "V20-DET:TS")
+epicsEnvSet("SYS", "HZB-V20:DET")
 epicsEnvSet("PCI_SLOT", "1:0.0")
 epicsEnvSet("DEVICE", "EVR-01")
 epicsEnvSet("EVR", "$(DEVICE)")
