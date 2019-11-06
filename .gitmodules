@@ -1,0 +1,3 @@
+[submodule "essip-adc-opi"]
+	path = essip-adc-opi
+	url = https://github.com/icshwi/essip-adc-opi.git

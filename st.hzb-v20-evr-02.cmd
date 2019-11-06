@@ -1,6 +1,7 @@
 require dmsc_detector_interface,master
 require stream,2.8.8
 require autosave,5.9.0
+require evr_timestamp_buffer,2.6.1
 
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 epicsEnvSet("IOCNAME", "hzb-v20-evr-02")
@@ -15,9 +16,16 @@ epicsEnvSet("MRF_HW_DB", "evr-pcie-300dc-ess.db")
 epicsEnvSet("E3_MODULES", "/epics/iocs/e3")
 epicsEnvSet("EPICS_CMDS", "/epics/iocs/cmds")
 epicsEnvSet("TMP", "/tmp")
+#ESSIP-DET:TS-EVR-01:
+epicsEnvSet("CHIC_SYS", "ESSIP-DET:")
+epicsEnvSet("CHOP_DRV", "Chop-Drv-01")
+epicsEnvSet("CHIC_DEV", "TS-$(DEVICE)")
+epicsEnvSet("BUFFSIZE", "100")
+
 
 < "$(EPICS_CMDS)/mrfioc2-common-cmd/st.evr.cmd"
 
+iocshLoad("$(evr_timestamp_buffer_DIR)/evr_timestamp_buffer.iocsh", "CHIC_SYS=$(CHIC_SYS), CHIC_DEV=$(CHIC_DEV), CHOP_DRV=$(CHOP_DRV), SYS=$(SYS), BUFFSIZE=$(BUFFSIZE)")
 
 iocshLoad("$(autosave_DIR)/autosave.iocsh", "AS_TOP=$(TOP),IOCNAME=$(IOCNAME)")
 
