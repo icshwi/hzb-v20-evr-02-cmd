@@ -1,3 +1,9 @@
+# DEPRECATION NOTICE
+
+## 2021-11-29
+
+This repository has been archived, as it references an out-of-date version of e3 for its use.
+
 # hzb-v20-evr-02-cmd
 
 Startup scripts for hzb-v20-evr-02
